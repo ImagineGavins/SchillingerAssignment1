@@ -5,34 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add to List</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Add to Lists</h1>
-    <a href="/index.html">Index</a>
     <br>
-    <div class="chatlog"></div>
-    <script>
-        // Sets up server connection to client and query's message input and chatlog
-        var ws = new WebSocket('ws://localhost:3000', 'echo-protocol'),
-        chatlog = document.querySelector('.chatlog'),
-        message = document.querySelector('input[name="message"]')
-
-        // adds event listener for when user clicks button
-        document.querySelector('button').addEventListener('click', sendMessage)
-
-        // function to send message
-        function sendMessage(){
-            ws.send(message.value)
-        }
-
-        ws.addEventListener('open', function(e){
-            chatlog.insertAdjacentHTML("beforeend", "<br> connection made")
-        })
-
-        ws.addEventListener('message', function(e){
-            var msg = e.data
-            chatlog.insertAdjacentHTML("beforeend", "<br> " + msg)
-        })
-    </script>
+    <input type="text">
+    <br>
+    <a href="/index.html">Back to Index</a>
 </body>
 </html>
